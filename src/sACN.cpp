@@ -187,6 +187,12 @@ uint16_t Receiver::flagAndLength(uint8_t highByte, uint8_t lowByte, uint16_t sta
 	return (highByte << 8) + lowByte - 0x7000 + startAddress;
 	}
 
+void Receiver::setUniverse(uint16_t universe) {
+	this->universe = universe;
+	this->unicastMode = unicastMode;
+	mcastIP[2] = universe >> 8;
+	mcastIP[3] = universe;
+	}
 
 Source::Source(UDP& udp, uint16_t universe, uint16_t priority, uint8_t cid[16], const char *name, bool priorityDD) {
 	this->udp = &udp;

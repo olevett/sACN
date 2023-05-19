@@ -139,6 +139,13 @@ class Receiver {
 	 */
 	bool sources();
 
+	/**
+	 * @brief Set universe to receive
+	 * 
+	 * @param universe DMX universe to receive
+	 */
+	void setUniverse(uint16_t universe);
+
 	private:
 	bool parse();
 	uint16_t flagAndLength(uint8_t highByte, uint8_t lowByte, uint16_t startAddress);
